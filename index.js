@@ -23,7 +23,10 @@ app.get('/user/:id',(req,res)=>{
 
 //post 
 app.post('/addUser',(req,res)=>{
-  console.log(req.body);
+  const user = req.body
+  user.id=87
+  console.log(user);
+  res.send(user)
 })
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

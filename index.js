@@ -2,7 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 const cors= require('cors')
+var bodyParser = require('body-parser')
 app.use(cors());
+app.use(bodyParser.json());
 
 const users= ["Asad","Manik","Graps",'karim']
 //get
@@ -20,8 +22,8 @@ app.get('/user/:id',(req,res)=>{
 })
 
 //post 
-app.post('/addUser',(res,req)=>{
-  console.log('post req sent');
+app.post('/addUser',(req,res)=>{
+  console.log(req.body);
 })
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
